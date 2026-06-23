@@ -346,7 +346,7 @@ public:
     float x, y;
     float speed;
     float baseSpeed;
-    float width, height;   // logical extents along travel axis
+    float width, height;   
     Color color;
 
     bool  waiting;
@@ -408,34 +408,22 @@ public:
 
         bool horizontal = (d == EAST || d == WEST);
 
-        // ---------------------------------------------------------------
-        // FIX: Larger vehicles with proper aspect ratios.
-        // crossAxis  = girth of the vehicle (fits inside the lane)
-        // lengthAxis = bumper-to-bumper length (elongated along travel)
-        //
-        // width/height are stored as the LOGICAL box in screen space:
-        //   horizontal travel ? width=long side, height=short side
-        //   vertical travel   ? width=short side, height=long side
-        // DrawTexturePro then uses a corrected dst rect (see draw()) so the
-        // sprite is never squashed after its 90�/270� rotation.
-        // ---------------------------------------------------------------
         float crossAxis, lengthAxis;
         switch (t) {
             case AMBULANCE:
                 crossAxis  = 28.f;
-                lengthAxis = crossAxis * (237.f / 139.f);  // � 47.8
+                lengthAxis = crossAxis * (237.f / 139.f);  
                 break;
             case FIRETRUCK:
                 crossAxis  = 27.f;
-                lengthAxis = crossAxis * (252.f / 128.f);  // � 53.2
+                lengthAxis = crossAxis * (252.f / 128.f);  
                 break;
-            default:  // CAR
+            default:  // car
                 crossAxis  = 26.f;
-                lengthAxis = crossAxis * (245.f / 153.f);  // � 41.6
+                lengthAxis = crossAxis * (245.f / 153.f);  
                 break;
         }
 
-        // Store logical extents; draw() will pass the correct dst to raylib.
         width  = horizontal ? lengthAxis : crossAxis;
         height = horizontal ? crossAxis  : lengthAxis;
 
@@ -599,9 +587,6 @@ public:
     void draw() const {
         if (!active) return;
 
-        // Sprites are authored facing EAST (nose pointing +X / right).
-        // DrawTexturePro rotates clockwise in screen space, so:
-        //   EAST = 0 deg, SOUTH = 90 deg, WEST = 180 deg, NORTH = 270 deg.
         float rotation = 0.f;
         switch (dir) {
             case EAST:  rotation = 0.f;   break;
@@ -617,20 +602,9 @@ public:
         if (g_vehicleTextures.loaded && tex->id != 0) {
             Rectangle src = { 0, 0, (float)tex->width, (float)tex->height };
 
-            // ---------------------------------------------------------------
-            // KEY FIX: DrawTexturePro rotates the dst rect in-place.
-            // For 90� / 270� rotations the rendered visual dimensions are:
-            //   screen-X extent = dst.height, screen-Y extent = dst.width
-            // So for N/S vehicles we must pass dst (width=lengthAxis, height=crossAxis)
-            // which means swapping our stored width/height for the dst rect only.
-            // The origin must also use the dst rect dimensions (pre-rotation).
-            // ---------------------------------------------------------------
             float dstW, dstH;
             if (dir == NORTH || dir == SOUTH) {
-                // stored: width=crossAxis, height=lengthAxis
-                // pass to dst: width=lengthAxis, height=crossAxis
-                // ? after 90�/270� rotation raylib renders it
-                //   lengthAxis tall � crossAxis wide on screen  ?
+            
                 dstW = height;   // lengthAxis
                 dstH = width;    // crossAxis
             } else {
