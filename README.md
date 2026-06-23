@@ -56,19 +56,6 @@ Once a direction reaches the top of the heap, the `IntersectionManager` override
 
 ---
 
-## Key Stats
-
-| | |
-|---|---|
-| Lines of C++ | ~850 |
-| Major classes | 7 |
-| Emergency direction lookup | O(1) every frame |
-| Adaptive green range | 3 – 12 seconds |
-| Max concurrent vehicles | 60 |
-| Target frame rate | 60 FPS |
-
----
-
 ## Limitations
 
 **Instant Signal Switching:** The simulator currently flips the relevant light from red to green the moment an emergency vehicle registers, with no transition buffer. In a real intersection this would be unsafe — a driver already committed to crossing on a green has no warning that right-of-way is about to change.
