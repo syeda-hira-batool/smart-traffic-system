@@ -1,8 +1,10 @@
 # 🚦 Smart Traffic Grid Simulator
 
 A real-time **C++ traffic intersection simulator** built with **Raylib** that models adaptive traffic signal timing, emergency vehicle priority dispatch, and intelligent traffic flow management.
+<p align="center">
+  <img src="SmartTrafficSystem.gif" alt="Football Penalty Game Demo" width="750"/>
+</p>
 
-![Smart Traffic System](SmartTrafficSystem.gif)
 
 ##  Overview
 
