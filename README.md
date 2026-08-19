@@ -6,7 +6,7 @@ A real-time **C++ traffic intersection simulator** built with **Raylib** that mo
 </p>
 
 
-##  Overview
+##  Overview:
 
 Traditional traffic signals often rely on fixed timers, regardless of how much traffic is actually present.
 
@@ -21,9 +21,9 @@ The system:
 * Prevents conflicting traffic flows inside the intersection
 * Reacts to traffic changes in real time
 
-##  Key Features
+##  Key Features:
 
-### 🟢 Adaptive Traffic Signal Timing
+### Adaptive Traffic Signal Timing:
 
 The simulator dynamically adjusts green-light duration based on the number of vehicles waiting in each direction.
 
@@ -34,7 +34,7 @@ The simulator dynamically adjusts green-light duration based on the number of ve
 
 This prevents vehicles from waiting unnecessarily at empty intersections.
 
-### 🚑 Emergency Vehicle Priority
+### Emergency Vehicle Priority:
 
 Emergency vehicles receive priority through a binary-heap priority queue.
 
@@ -52,19 +52,19 @@ When an emergency vehicle approaches:
 5. The emergency vehicle receives a clear path.
 6. Normal traffic signal cycling resumes after the vehicle clears the intersection.
 
-### 🚘 Intelligent Lane Clearing
+### Intelligent Lane Clearing:
 
 Regular vehicles detect approaching emergency vehicles and move aside to create a path.
 
 This simulates real-world traffic yielding behavior and allows emergency vehicles to pass through the intersection more efficiently.
 
-### 🛡️ Intersection Safety
+### Intersection Safety:
 
 The simulator tracks whether traffic is currently occupying the intersection.
 
 This helps prevent conflicting traffic flows from entering the intersection at the same time.
 
-##  System Architecture
+## System Architecture:
 
 | Problem                    | Solution                           | Core Components                    |
 | -------------------------- | ---------------------------------- | ---------------------------------- |
@@ -74,7 +74,7 @@ This helps prevent conflicting traffic flows from entering the intersection at t
 | Conflicting traffic flows  | Intersection occupancy tracking    | `boxOccupancy`                     |
 | Signal state management    | Traffic-light state machine        | `TrafficLight`                     |
 
-##  Core Components
+## Core Components:
 
 ### `LaneQueue`
 
@@ -102,7 +102,7 @@ Represents regular and emergency vehicles and manages their movement through the
 
 Controls traffic-light states and signal behavior.
 
-##  Controls
+## Controls:
 
 | Key   | Action                           |
 | ----- | -------------------------------- |
@@ -110,7 +110,7 @@ Controls traffic-light states and signal behavior.
 | `C`   | Spawn a regular car              |
 | `ESC` | Quit the simulator               |
 
-##  Technologies Used
+## Technologies Used:
 
 * **C++**
 * **Raylib**
@@ -120,7 +120,7 @@ Controls traffic-light states and signal behavior.
 * Dynamic traffic management
 * Collision and occupancy detection
 
-##  Concepts Demonstrated
+## Concepts Demonstrated:
 
 This project applies several important programming and computer science concepts:
 
@@ -136,26 +136,26 @@ This project applies several important programming and computer science concepts
 * Event-driven behavior
 * Algorithmic decision-making
 
-##  How to Run
+##  How to Run:
 
-### Prerequisites
+### Prerequisites:
 
 Make sure you have:
 
 * A C++ compiler
 * Raylib installed and configured
 
-### Compile
+### Compile:
 
 Compile the source code with your preferred C++ compiler and link it with Raylib.
 
 The exact command depends on your operating system and Raylib configuration.
 
-### Run
+### Run:
 
 After compiling the project, run the generated executable.
 
-##  Current Limitation
+##  Current Limitation:
 
 The current simulator switches traffic signals immediately when an emergency vehicle is detected.
 
@@ -169,7 +169,7 @@ A real-world implementation would require a safer transition system, such as:
 
 This would provide a safer transition for vehicles already inside or approaching the intersection.
 
-##  Future Improvements
+##  Future Improvements:
 
 Possible future improvements include:
 
