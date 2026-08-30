@@ -1,12 +1,14 @@
 # 🚦 Smart Traffic Grid Simulator
 
 A real-time **C++ traffic intersection simulator** built with **Raylib** that models adaptive traffic signal timing, emergency vehicle priority dispatch, and intelligent traffic flow management.
+
 <p align="center">
-  <img src="SmartTrafficSystem.gif" alt="Football Penalty Game Demo" width="750"/>
+  <a href="https://www.youtube.com/watch?v=Ezdf_6TyaK4">
+    <img src="https://img.youtube.com/vi/Ezdf_6TyaK4/maxresdefault.jpg" alt="Smart Traffic Grid Simulator Demo" width="750"/>
+  </a>
 </p>
 
-
-##  Overview:
+## Overview:
 
 Traditional traffic signals often rely on fixed timers, regardless of how much traffic is actually present.
 
@@ -21,7 +23,7 @@ The system:
 * Prevents conflicting traffic flows inside the intersection
 * Reacts to traffic changes in real time
 
-##  Key Features:
+## Key Features:
 
 ### Adaptive Traffic Signal Timing:
 
@@ -136,7 +138,7 @@ This project applies several important programming and computer science concepts
 * Event-driven behavior
 * Algorithmic decision-making
 
-##  How to Run:
+## How to Run:
 
 ### Prerequisites:
 
@@ -155,7 +157,7 @@ The exact command depends on your operating system and Raylib configuration.
 
 After compiling the project, run the generated executable.
 
-##  Current Limitation:
+## Current Limitation:
 
 The current simulator switches traffic signals immediately when an emergency vehicle is detected.
 
@@ -169,20 +171,20 @@ A real-world implementation would require a safer transition system, such as:
 
 This would provide a safer transition for vehicles already inside or approaching the intersection.
 
-##  Future Improvements:
+## Future Improvements:
 
 Possible future improvements include:
 
-*  Realistic yellow-light transition periods
-*  Siren-based emergency vehicle detection
-*  Traffic analytics and statistics
-*  Multiple connected intersections
-*  More realistic vehicle behavior
-*  Traffic-density visualization
-*  Emergency vehicle detection sensors
-*  Networked traffic simulation
+* Realistic yellow-light transition periods
+* Siren-based emergency vehicle detection
+* Traffic analytics and statistics
+* Multiple connected intersections
+* More realistic vehicle behavior
+* Traffic-density visualization
+* Emergency vehicle detection sensors
+* Networked traffic simulation
 
-##  Author
+## Author
 
 **Syeda Hira Batool**
 
